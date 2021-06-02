@@ -9,10 +9,10 @@ void readAndSortStrings(void);
 
 int main()
 {
-    // char s1[] = "123456789";
-    // char s2[] = "abcde";
+    char s1[] = "123456789";
+    char s2[] = "abcde";
 
-    // reversePrint(s1);
+    reversePrint(s1);
 
     // reverseStrcpy(s1, s2);
     // printf("After reverseStrcpy:\n");
@@ -21,7 +21,7 @@ int main()
 
     // testArrayOfStrings();
 
-    readAndSortStrings();
+    // readAndSortStrings();
     
     return 0;
 }
@@ -38,7 +38,7 @@ void reverseStrcpy(char s1[], const char s2[])
 
 void reversePrint(const char str[])
 {
-    for (int loc = strlen(str); loc >= 0; loc--)
+    for (int loc = strlen(str) - 1; loc >= 0; loc--)
         printf("%c", str[loc]);
     printf("\n");
 }
