@@ -5,6 +5,7 @@
 int main()
 {
     char str[100];
+    
     int l, i;
 
     printf("\n\nPrint individual characters of string in reverse order: \n\n");
