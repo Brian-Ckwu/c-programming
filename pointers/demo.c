@@ -9,7 +9,10 @@ int main()
 
     // Point to the the variable
     ptr = &i;
-    
+
+    // Change the value of the variable
+    i = 10;
+
     // Display the information of the variable
     printf("The address of the variable: %p\n", &i);
     printf("The size of the variable: %zu\n", sizeof(i));
