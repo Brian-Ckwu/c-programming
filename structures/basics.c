@@ -1,38 +1,38 @@
 #include <stdio.h>
 
-int main()
-{
-    // Create structures
-    struct Date {
+// Create structures (outside the int function so these structures can be used by other functions) (these definitions will not occupy memory)
+struct Date {
+    int year;
+    int month;
+    int day;
+};
+
+struct Time {
+    int hour;
+    int minute;
+    int second;
+};
+
+struct DateAndTime {
+    struct Date date;
+    struct Time time;
+};
+
+struct NewTime {
+    // Date
+    struct {
         int year;
         int month;
         int day;
-    };
+    } date;
+    // Time
+    int hour;
+    int minute;
+    int second;
+} newtime;
 
-    struct Time {
-        int hour;
-        int minute;
-        int second;
-    };
-
-    struct DateAndTime {
-        struct Date date;
-        struct Time time;
-    };
-
-    struct NewTime {
-        // Date
-        struct {
-            int year;
-            int month;
-            int day;
-        } date;
-        // Time
-        int hour;
-        int minute;
-        int second;
-    } newtime;
-
+int main()
+{
     // Declare variables and arrays
     // Variables
     struct Date today = {2021, 6, 7};
