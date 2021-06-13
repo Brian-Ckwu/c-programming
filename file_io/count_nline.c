@@ -7,7 +7,7 @@ int main()
 {
     // Declare variables
     FILE* pfile = NULL;
-    char filename[20] = "./files/results.txt";
+    const char filename[20] = "./files/results.txt";
     int lines = 0;
 
     // Open the file
