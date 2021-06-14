@@ -17,6 +17,7 @@ int main()
     pfout = fopen("./temp.txt", "w+");
     if ((pfin == NULL) || (pfout == NULL)) {
         printf("Fail to open the files. Please check.\n");
+        return -1; // Remember to exit the program
     }
 
     // Read the characters
@@ -41,8 +42,8 @@ int main()
 
     // If the result is okay, remove the original file and rename the temp file to the original one
     char isCorrect;
-    
-    printf("\nIs the conversion correct? (y/n)");
+
+    printf("\nIs the conversion correct? (y/n) ");
     scanf("%c", &isCorrect);
 
     if (isCorrect == 'y') {
