@@ -37,7 +37,7 @@ void testLowerCase(void)
 {
     // Declaration
     char* s = "abc02/&#d*e";
-    char temp;
+    int temp;
 
     for (int i = 0; i < strlen(s); i++) {
         temp = *(s + i);
