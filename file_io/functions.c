@@ -9,14 +9,16 @@
 void accessFiles(void);
 void readFromFiles(void);
 void writeToFiles(void);
-void positionInFiles(void);
+int positionInFiles(void);
 
 int main()
 {
+    int status = 0;
     // accessFiles();
-    readFromFiles();
+    // readFromFiles();
+    status = positionInFiles();
 
-    return 0;
+    return status;
 }
 
 // fopen(), fclose(), rename(), remove()
@@ -111,4 +113,51 @@ void readFromFiles(void)
     fscanf(pfile, "%s %f %d", itemName, &price, &quantity);
 
     printf("\nThe information of the item: %s %f %d", itemName, price, quantity);
+}
+
+// fputc(), fputs(), and fprintf()
+void writeToFiles(void)
+{
+    // 1. int fputc(int ch, FILE* pfile) -> written char / EOF if failure
+    // 2. int fputs(const char* str, FILE* pfile)
+    // 3. int fprintf(FILE* stream, const char* format, ...) -> number of written characters
+}
+
+// ftell() & fseek()
+int positionInFiles(void)
+{
+    // Declaration
+    const char* kFilename = "./files/test_positions.txt";
+    const char* kSomeText = "Here is some text.\n";
+    FILE* pfile = NULL;
+    char temp;
+    long pos;
+
+    // Open the file
+    pfile = fopen(kFilename, "w+");
+
+    if (pfile == NULL) {
+        printf("Fail to open the file.\n");
+        return -1;
+    }
+
+    // Write some text
+    fputs(kSomeText, pfile);
+
+    // Rewind to the beginning
+    rewind(pfile);
+
+    // 1. long ftell(FILE* pfile) -> position
+    do {
+        pos = ftell(pfile);
+        temp = fgetc(pfile);
+        printf("%ld -> %d\n", pos, temp);
+    }
+    while (temp != EOF);
+
+    // Close the file
+    fclose(pfile);
+    pfile = NULL;
+
+    return 0;
 }
