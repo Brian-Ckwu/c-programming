@@ -155,9 +155,15 @@ int positionInFiles(void)
     }
     while (temp != EOF);
 
+    rewind(pfile);
+    
+    // 2. int fseek(FILE* pfile, long offset, int origin): origin can be SEEK_SET, SEEK_CUR, or SEEK_END
+    fseek(pfile, -3, SEEK_END);
+    printf("%c", fgetc(pfile));
+
     // Close the file
     fclose(pfile);
     pfile = NULL;
-
+    
     return 0;
 }
